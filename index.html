@@ -1,113 +1,211 @@
 <!DOCTYPE html>
-<!--
-    Plain-Academic by Vasilios Mavroudis
-    Released under the Simplified BSD License/FreeBSD (2-clause) License.
-    https://github.com/mavroudisv/plain-academic
--->
-
 <html lang="en">
 <head>
-  <title>John Doe</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+  <meta name="description" content="Personal academic website">
+  <title>Your Name</title>
+
+  <style>
+    :root {
+      --nav-bg: #222;
+      --nav-text: #cfcfcf;
+      --text: #222;
+      --link: #1a73b8;
+      --max-width: 980px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.45;
+    }
+
+    a { color: var(--link); }
+
+    .navbar { background: var(--nav-bg); }
+
+    .nav-inner {
+      width: min(var(--max-width), calc(100% - 32px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      min-height: 50px;
+      gap: 30px;
+    }
+
+    .nav-inner a {
+      color: var(--nav-text);
+      text-decoration: none;
+      font-size: 14px;
+      padding: 15px 0;
+    }
+
+    .nav-inner a:hover { color: #fff; }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 60px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(300px, 1fr) minmax(260px, 1fr);
+      gap: 50px;
+      align-items: start;
+    }
+
+    /* Smaller portrait-style presentation, while preserving the image aspect ratio. */
+    .main-image {
+      width: 280px;
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 0 20px;
+    }
+
+    .bio {
+      max-width: 600px;
+      text-align: left;
+    }
+
+    .sidebar h1 {
+      margin: 0 0 16px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 32px;
+      line-height: 1.1;
+    }
+
+    .sidebar p { margin: 0 0 18px; }
+
+    .sidebar-links a {
+      display: block;
+      margin: 3px 0;
+      text-decoration: none;
+    }
+
+    .section { margin-top: 42px; }
+
+    .section h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+
+    .project { max-width: 760px; }
+
+    .project h3 { margin-bottom: 8px; }
+
+    .project-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .credit {
+      width: min(var(--max-width), calc(100% - 32px));
+      margin: 20px auto 24px;
+      text-align: right;
+      font-size: 0.8em;
+      color: #9aa3ad;
+    }
+
+    .credit a {
+      color: #9aa3ad;
+      text-decoration: none;
+    }
+
+    .credit a:hover { text-decoration: underline; }
+
+    @media (max-width: 760px) {
+      .nav-inner { gap: 20px; }
+      .layout { grid-template-columns: 1fr; }
+      .sidebar { order: -1; }
+      .main-image { width: 240px; }
+    }
+  </style>
 </head>
+
 <body>
+  <!--
+    Plain-Academic by Vasilios Mavroudis
+    Released under the BSD 2-Clause License.
+    Original template: https://github.com/mavroudisv/plain-academic
 
+    Customized version uses only local HTML/CSS:
+    no Bootstrap, no jQuery, no external fonts, no JavaScript, and no analytics.
+  -->
 
-<!-- Navigation -->
-	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-	  <div class="container">
-		<div class="navbar-header">
-		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-		</div>
-
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		  <ul class="nav navbar-nav">
-				  <li><a href="index.html">Home</a></li>
-				  <li><a href="#">Projects</a></li>
-				  <li><a href="#publications">Publications</a></li> 
-				  <li><a href="#">CV</a></li> 
-		  </ul>
-		</div>
-	  </div>
-	</nav>
-  
-  <!-- Page Content -->
-    <div class="container">
-
-        <div class="row">
-
-            <!-- Entries Column -->
-            <div class="col-md-8" style="height: 100vh;">
-                
-                <!-- Main Image -->
-                <img class="img-responsive" src="photo.gif" alt=""><br>
-                
-                <div style="margin-top:3%; text-align:justify;">                
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing <a href="#">elit</a>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-					
-					<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-					
-					<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                </div>
-            </div> 
-
-            <!-- Contact Info on the Sidebar -->
-            <div class="col-md-4">
-                <div style="font-family: 'Oswald', sans-serif; font-size: 32px;"><b>John Doe</b></div><br>
-                <p><b>john at doe.com</b><br>
-                <p>Random Department<br>
-                University of Randomness<br>
-                Street<br>
-                City <br>
-                Country<br>
-                </p>
-            </div>
-            
-            
-            <!-- Links on the Sidebar -->
-            <div class="col-md-4" style="margin-top:2%">
-              <dd><a href="#">Google Scholar</a></dd> 
-              <dd><a href="#">Twitter</a></dd>
-              <dd><a href="#">LinkedIn</a></dd>
-            </div>
-            
-            
-            <!-- Publications -->
-            <div class="col-md-8" style="height: 100vh;">    
-                <h2 id="publications">Publications</h2>
-                
-                <strong>Peer-reviewed</strong><br/>
-                <ul>
-                <li class="paper" words="add, your, keywords, here"><a href="#">Full title</a> Names of the authors</li>
-                </ul>
-            
-                <strong>Technical Reports</strong><br/>
-                <ul>
-                <li class="paper" words="add, your, keywords, here"><a href="#">Full title</a>. Details of the report</li>
-                </ul>
-            </div>
-
-            
-        </div>
-
-
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#publications">Publications</a>
     </div>
-    <!-- /.container -->
-    
-    <!-- Other people may like it too! -->
-    <a style="color:#b5bec9;font-size:0.8em; float:right;" href="https://github.com/mavroudisv/plain-academic">Plain Academic</a> 
-    
-</body>
+  </nav>
 
+  <main class="container">
+    <div class="layout">
+      <section>
+        <img class="main-image" src="photo.gif" alt="Profile photograph">
+
+        <div class="bio">
+          <p>Replace this paragraph with your short academic or professional introduction.</p>
+          <p>You can add a second paragraph about your research interests, background, or current work.</p>
+        </div>
+      </section>
+
+      <aside class="sidebar">
+        <h1>Your Name</h1>
+
+        <p>
+          <strong>your email</strong><br>
+          Your affiliation or short professional description
+        </p>
+
+        <div class="sidebar-links">
+          <a href="https://github.com/MKR-200">GitHub</a>
+        </div>
+      </aside>
+    </div>
+
+    <section class="section" id="projects">
+      <h2>Projects</h2>
+
+      <article class="project">
+        <h3>Battery Build-out and the Shape of California Electricity Prices</h3>
+        <p>
+          A conditional-association study of whether California's rapid expansion of
+          utility-scale battery capacity is associated with changes in the CAISO SP15
+          day-ahead evening-minus-midday electricity price spread.
+        </p>
+        <div class="project-links">
+          <a href="https://github.com/MKR-200/battery-price-project/blob/main/Battery_Buildout_CAISO_Integrated_Final_Report.pdf">Read report (PDF)</a>
+          <a href="https://github.com/MKR-200/battery-price-project">View code &amp; data</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="publications">
+      <h2>Publications</h2>
+      <p>Publications can be added here later.</p>
+    </section>
+  </main>
+
+  <div class="credit">
+    <div>All errors are my own.</div>
+    <div>
+      Design courtesy of
+      <a href="https://github.com/mavroudisv/plain-academic">Vasilios Mavroudis</a>
+    </div>
+  </div>
+</body>
 </html>
