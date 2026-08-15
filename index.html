@@ -51,28 +51,29 @@
     .container {
       width: min(var(--max-width), calc(100% - 32px));
       margin: 0 auto;
-      padding: 28px 0 60px;
+      padding: 24px 0 60px;
     }
 
     .layout {
       display: grid;
-      grid-template-columns: minmax(300px, 1fr) minmax(260px, 1fr);
-      gap: 50px;
+      grid-template-columns: 430px minmax(260px, 1fr);
+      gap: 28px;
       align-items: start;
     }
 
     .main-image {
-      width: 280px;
-      height: 280px;
+      width: 255px;
+      height: 255px;
       max-width: 100%;
       object-fit: cover;
       border-radius: 50%;
       display: block;
-      margin: 0 0 20px;
+      margin: 0 0 10px;
     }
 
     .bio {
-      max-width: 600px;
+      max-width: 760px;
+      width: 100%;
       text-align: left;
     }
 
@@ -128,7 +129,7 @@
       .nav-inner { gap: 20px; }
       .layout { grid-template-columns: 1fr; }
       .sidebar { order: -1; }
-      .main-image { width: 240px; }
+      .main-image { width: 220px; height: 220px; }
     }
   </style>
 </head>
